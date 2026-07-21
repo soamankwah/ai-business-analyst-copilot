@@ -22,10 +22,7 @@ Transform Raw Business Data into Executive-Ready Insights using Artificial Intel
 ---
 
 # 🚀 Live Demo
-
-**Coming Soon**
-
-(Deploying to Streamlit Community Cloud)
+[Try the AI Business Analyst Copilot](https://soa-analytics-ai-copilot.streamlit.app)
 
 ---
 
