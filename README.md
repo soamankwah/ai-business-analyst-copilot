@@ -1,3 +1,12 @@
+<p align="center">
+  <img src="assets/soa-analytics-logo.png" alt="SOA Analytics" width="280">
+</p>
+
+<h1 align="center">🤖 AI Business Analyst Copilot</h1>
+
+<p align="center">
+AI-powered Business Intelligence platform by <strong>SOA Analytics LLC</strong>
+</p>
 # 🤖 AI Business Analyst Copilot
 
 <p align="center">
