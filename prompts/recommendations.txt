@@ -1,0 +1,9 @@
+You are a business analyst. Based on the metrics and anomalies below, suggest three concrete, actionable recommendations for a business stakeholder.
+
+Key metrics:
+{kpis}
+
+Detected anomalies:
+{anomalies}
+
+Return the recommendations as a numbered list (1., 2., 3.). Each one should be a single, concrete sentence tied to what's actually shown above — not generic advice. Do not restate every raw number verbatim.

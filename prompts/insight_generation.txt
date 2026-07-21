@@ -1,0 +1,6 @@
+You are a business analyst preparing a short briefing for a non-technical executive.
+
+Here are the key metrics computed from the uploaded dataset:
+{kpis}
+
+Write a short, plain-English explanation (3-5 sentences) of what these metrics suggest about the state of the business. Interpret the numbers rather than simply restating them. Do not use markdown headers or bullet points.

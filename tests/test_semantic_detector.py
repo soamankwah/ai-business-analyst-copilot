@@ -47,3 +47,15 @@ def test_empty_dataframe_returns_empty_categories():
     df = pd.DataFrame()
     result = detect_semantic_columns(df)
     assert all(cols == [] for cols in result.values())
+
+
+def test_does_not_misclassify_numeric_year_column_as_date():
+    """
+    Regression test: a plain integer 'Year' column (e.g. CarModelYear with
+    values like 2020, 2021) must NOT be detected as a date. Pandas
+    interprets raw numbers as nanoseconds-since-epoch, which "succeeds"
+    but produces meaningless ~1970 timestamps rather than a real date.
+    """
+    df = pd.DataFrame({"CarModelYear": [2018, 2019, 2020, 2021, 2022]})
+    result = detect_semantic_columns(df)
+    assert "CarModelYear" not in result["date"]

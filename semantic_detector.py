@@ -58,6 +58,16 @@ def _is_numeric_like(series: pd.Series, min_success_rate: float = 0.6) -> bool:
 def _is_date_like(series: pd.Series, min_success_rate: float = 0.6) -> bool:
     if pd.api.types.is_datetime64_any_dtype(series):
         return True
+
+    # A numeric column (e.g. a plain "Year" column with values like 2020)
+    # will "successfully" parse via pd.to_datetime, because pandas treats
+    # raw numbers as nanoseconds-since-epoch — producing bogus 1970-ish
+    # timestamps rather than a real failure. Genuine date columns in
+    # uploaded CSV/XLSX data are strings or already-parsed datetimes, not
+    # bare integers/floats, so numeric columns are never treated as dates.
+    if pd.api.types.is_numeric_dtype(series):
+        return False
+
     try:
         coerced = pd.to_datetime(series, errors="coerce", format="mixed")
     except (ValueError, TypeError):

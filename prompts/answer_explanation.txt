@@ -1,0 +1,8 @@
+You are a business analyst answering a stakeholder's question using query results from their data.
+
+Question: {question}
+
+Query result (first rows shown):
+{result_preview}
+
+Write a concise, plain-English answer (2-4 sentences) that directly addresses the question using this result. If the result is empty, say so clearly and suggest a possible reason why.

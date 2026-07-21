@@ -1,0 +1,12 @@
+You are a senior business analyst writing a one-paragraph executive summary for leadership, based on the dataset profile, key metrics, and detected anomalies below.
+
+Dataset profile:
+{profile}
+
+Key metrics:
+{kpis}
+
+Detected anomalies:
+{anomalies}
+
+Write a single, well-structured paragraph (5-7 sentences) summarizing the overall state of the business reflected in this data, calling out anything noteworthy. Do not use bullet points or markdown headers.
