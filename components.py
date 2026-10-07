@@ -225,10 +225,10 @@ def render_profile():
 
         st.markdown("&nbsp;", unsafe_allow_html=True)
         st.subheader("Data Preview")
-        st.dataframe(get_preview(df, 10), width="stretch")
+        st.dataframe(get_preview(df, 10), use_container_width=True)
 
         st.subheader("Column Types & Missing Values")
-        st.dataframe(profile["columns"], width="stretch")
+        st.dataframe(profile["columns"], use_container_width=True)
 
 
 def render_semantic_detection():
@@ -244,7 +244,7 @@ def render_semantic_detection():
         for category, cols in semantic_columns.items():
             if cols:
                 display_rows.append({"category": category, "columns": ", ".join(cols)})
-        st.dataframe(display_rows, width="stretch")
+        st.dataframe(display_rows, use_container_width=True)
 
 
 def render_kpis():
@@ -274,7 +274,7 @@ def render_charts():
         cols = st.columns(len(charts))
         for i, (title, fig) in enumerate(charts):
             with cols[i]:
-                st.plotly_chart(fig, width="stretch")
+                st.plotly_chart(fig, use_container_width=True)
 
 
 def render_executive_insights():
@@ -447,7 +447,7 @@ def render_chat():
             st.caption("Suggested questions")
             chip_cols = st.columns(len(suggestions))
             for i, q in enumerate(suggestions):
-                if chip_cols[i].button(q, key=f"suggested_q_{i}", width="stretch"):
+                if chip_cols[i].button(q, key=f"suggested_q_{i}", use_container_width=True):
                     pending_question = q
 
         # A suggestion clicked on the Home page arrives here the same
@@ -463,7 +463,7 @@ def render_chat():
                     with st.expander("SQL used"):
                         st.code(turn["sql"], language="sql")
                 if turn.get("result_df") is not None:
-                    st.dataframe(turn["result_df"], width="stretch")
+                    st.dataframe(turn["result_df"], use_container_width=True)
 
         typed_question = st.chat_input("Ask a business question about this data, e.g. 'which region has the most revenue?'")
         question = pending_question or typed_question
@@ -495,7 +495,7 @@ def render_chat():
 
             with st.expander("SQL used"):
                 st.code(result["sql"], language="sql")
-            st.dataframe(result["result_df"], width="stretch")
+            st.dataframe(result["result_df"], use_container_width=True)
 
             st.session_state.chat_history.append(
                 {
