@@ -52,7 +52,7 @@ for col, (icon, title, desc, page) in zip(qa_cols, quick_actions):
                 """,
                 unsafe_allow_html=True,
             )
-            if st.button("Open", key=f"qa_{title}", width="stretch"):
+            if st.button("Open", key=f"qa_{title}", use_container_width=True):
                 st.switch_page(page)
 
 st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
@@ -82,17 +82,17 @@ with st.container(border=True):
 
         st.markdown("&nbsp;", unsafe_allow_html=True)
         btn_cols = st.columns(4)
-        if btn_cols[0].button("Continue Analysis", width="stretch"):
+        if btn_cols[0].button("Continue Analysis", use_container_width=True):
             st.switch_page("app_pages/dashboard.py")
-        if btn_cols[1].button("Ask AI", width="stretch"):
+        if btn_cols[1].button("Ask AI", use_container_width=True):
             st.switch_page("app_pages/ai_copilot.py")
-        if btn_cols[2].button("Open Dashboard", width="stretch"):
+        if btn_cols[2].button("Open Dashboard", use_container_width=True):
             st.switch_page("app_pages/dashboard.py")
-        if btn_cols[3].button("Generate Executive Summary", width="stretch"):
+        if btn_cols[3].button("Generate Executive Summary", use_container_width=True):
             st.switch_page("app_pages/executive_summary.py")
     else:
         st.info("No dataset loaded yet. Upload a CSV or Excel file to get started.")
-        if st.button("Upload a dataset", width="stretch"):
+        if st.button("Upload a dataset", use_container_width=True):
             st.switch_page("app_pages/datasets.py")
 
 st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
@@ -137,7 +137,7 @@ with right:
                 st.caption("No AI suggestions available — not enough business columns were detected in this dataset.")
             else:
                 for i, s in enumerate(suggestions):
-                    if st.button(s["label"], key=f"home_suggestion_{i}", width="stretch"):
+                    if st.button(s["label"], key=f"home_suggestion_{i}", use_container_width=True):
                         if s["question"]:
                             st.session_state["pending_home_question"] = s["question"]
                         st.switch_page(s["page"])
