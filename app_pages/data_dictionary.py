@@ -24,4 +24,4 @@ else:
             "Generated automatically from the dataset's schema — the same "
             "information shown under Datasets \u2192 Column Types & Missing Values."
         )
-        st.dataframe(profile["columns"], width="stretch")
+        st.dataframe(profile["columns"], use_container_width=True)
